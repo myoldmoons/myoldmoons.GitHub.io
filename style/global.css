@@ -1,0 +1,20 @@
+html,body,h1,h2,h3,h4,div,p,ul,li{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background-color: #FCF6EF;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration-line: none;
+	color: #333333;
+}
+a:hover{
+	color: #8090ff;
+}
+body div,body p,body h2,body h3{
+	font-size: 14px;
+}
