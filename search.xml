@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>【初识TypeScript】【05】TypeScript函数的类型</title>
+      <link href="2019/10/14/1016/"/>
+      <url>2019/10/14/1016/</url>
+      
+        <content type="html"><![CDATA[<h4 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h4><ul><li>定义函数的方式<ul><li>函数声明<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">utils</span> (<span class="params">a</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> a ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>函数表达式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> common =<span class="function">(<span class="params">a</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a ;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li></ul></li><li>TypeScript使用函数的类型 定义函数的输入与输出<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">total</span> (<span class="params">o:<span class="built_in">number</span>,p:<span class="built_in">number</span></span>):<span class="title">number</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> o+p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h4 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> total:<span class="function">(<span class="params">o:<span class="built_in">number</span>,p:<span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">number</span>=(o:<span class="built_in">number</span>,<span class="attr">p</span>:<span class="built_in">number</span>):<span class="function"><span class="params">number</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> o + p ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="接口定义"><a href="#接口定义" class="headerlink" title="接口定义"></a>接口定义</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> TotalType &#123;</span><br><span class="line">  (o:<span class="built_in">number</span>,<span class="attr">p</span>:<span class="built_in">number</span>):<span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> total:TotalType=(o:<span class="built_in">number</span>,<span class="attr">p</span>:<span class="built_in">number</span>):<span class="function"><span class="params">number</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> o + p ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="可选参数和参数默认值"><a href="#可选参数和参数默认值" class="headerlink" title="可选参数和参数默认值"></a>可选参数和参数默认值</h4><p>可选参数必须放在必选参数的后面</p><p>指定用户不传的情况下参数的默认值</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> total=(o:<span class="built_in">number</span>=<span class="number">20</span>,p?:<span class="built_in">number</span>):<span class="function"><span class="params">number</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p ? o + p : o ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">backValue</span>(<span class="params">a:<span class="built_in">number</span></span>):<span class="title">number</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">backValue</span>(<span class="params">a:<span class="built_in">string</span></span>):<span class="title">string</span></span></span><br><span class="line"><span class="function"><span class="function"><span class="keyword">function</span> <span class="title">backValue</span>(<span class="params">a:<span class="built_in">number</span>|<span class="built_in">string</span></span>):<span class="title">number</span>|<span class="title">string</span> </span>&#123;</span></span><br><span class="line"><span class="function">  <span class="title">return</span> <span class="title">a</span> </span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> TypeScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【初识TypeScript】【04】TypeScript数组的类型</title>
+      <link href="2019/10/14/1015/"/>
+      <url>2019/10/14/1015/</url>
+      
+        <content type="html"><![CDATA[<ol><li>[类型+方括号]表示法<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list:<span class="built_in">number</span>[]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br></pre></td></tr></table></figure></li><li>数组泛型<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list:<span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt;=[<span class="number">122</span>,<span class="number">33</span>,<span class="number">55</span>,<span class="number">18</span>];</span><br></pre></td></tr></table></figure></li><li>用接口表示数组<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> NumberArray &#123;</span><br><span class="line">    [index: <span class="built_in">number</span>]: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fibonacci: NumberArray = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br></pre></td></tr></table></figure></li><li>类数组<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> IArguments &#123;</span><br><span class="line">    [index: <span class="built_in">number</span>]: <span class="built_in">any</span>;</span><br><span class="line">    length: <span class="built_in">number</span>;</span><br><span class="line">    callee: <span class="built_in">Function</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> args: IArguments = <span class="built_in">arguments</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>any 在数组中的应用 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list:<span class="built_in">any</span>[]=[<span class="string">&#x27;tom&#x27;</span>,<span class="number">18</span>,<span class="literal">false</span>];</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> TypeScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【初识TypeScript】【03】TypeScript的interface(接口)</title>
+      <link href="2019/10/12/1014/"/>
+      <url>2019/10/12/1014/</url>
+      
+        <content type="html"><![CDATA[<p>上篇讲过的 基本数据类型来定义变量的类型，那么interface 接口用来定义对象的类型；</p><p>1.interface</p><ul><li>接口一般首字母大写</li><li>约束对象 要与接口形状保持一致</li></ul><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">  name:<span class="built_in">string</span>;</span><br><span class="line">  age:<span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> user:Person;</span><br><span class="line">user=&#123;</span><br><span class="line">    name:<span class="string">&#x27;tom&#x27;</span>,</span><br><span class="line">    age:<span class="number">18</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.可选属性</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">  name:<span class="built_in">string</span>;</span><br><span class="line">  age:<span class="built_in">number</span>;</span><br><span class="line">  sex?:<span class="built_in">any</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3.任意属性</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span>;</span><br><span class="line">    [propName: <span class="built_in">string</span>]: <span class="built_in">any</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>4.只读属性</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    <span class="keyword">readonly</span> name: <span class="built_in">string</span>;</span><br><span class="line">    age: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> TypeScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【初识TypeScript】【02】TypeScript的数据类型</title>
+      <link href="2019/10/12/1013/"/>
+      <url>2019/10/12/1013/</url>
+      
+        <content type="html"><![CDATA[<p>1.布尔</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isShow:<span class="built_in">boolean</span>=<span class="literal">true</span>;</span><br></pre></td></tr></table></figure><p>2.数字</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> total:<span class="built_in">number</span>=<span class="number">0.1111</span>;</span><br></pre></td></tr></table></figure><p>3.字符串</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> userName:<span class="built_in">string</span>=<span class="string">&#x27;Jack&#x27;</span>;</span><br></pre></td></tr></table></figure><p>4.void表示没有返回值的函数</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">alertName</span>(<span class="params"></span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">  alert(<span class="string">&#x27;hello Tom&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>5.undefined 和 null 是所有类型的子类型</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> u:<span class="literal">undefined</span>=<span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> n:<span class="built_in">number</span>=<span class="literal">null</span>;</span><br></pre></td></tr></table></figure><p>6.任意数据类型 any</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> thing:<span class="built_in">any</span>=<span class="number">100</span>;</span><br><span class="line">thing=<span class="literal">false</span>;</span><br><span class="line"><span class="comment">// 未指定数据类型的声明 会被指定为any</span></span><br><span class="line"><span class="keyword">let</span> some;</span><br><span class="line">some=<span class="number">200</span>;</span><br><span class="line">some=<span class="literal">true</span>;</span><br></pre></td></tr></table></figure><p>7.类型断言</p><p>声明变量且赋值 通过值的类型断言当前变量的类型；</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str= <span class="string">&#x27;tom&#x27;</span>; <span class="comment">// 等同于 let str:string=&#x27;tom&#x27;;</span></span><br></pre></td></tr></table></figure><p>8.联合类型</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> all:<span class="built_in">string</span>|<span class="built_in">number</span>|<span class="built_in">boolean</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> TypeScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【初识TypeScript】【01】Hello TypeScript</title>
+      <link href="2019/10/12/1012/"/>
+      <url>2019/10/12/1012/</url>
+      
+        <content type="html"><![CDATA[<p>1.安装TypeScript</p><p><code>npm install -g typescript</code></p><p>编译一个TypeScript 文件</p><p><code>tsc hello.ts</code></p><p>2.将以下代码 写入到 hello.ts 中</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">person:<span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`hello <span class="subst">$&#123;person&#125;</span>`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> user:<span class="built_in">string</span>=<span class="string">&#x27;Tom&#x27;</span>;</span><br><span class="line">sayHello(user);</span><br></pre></td></tr></table></figure><p>然后执行</p><p><code>tsc hello.ts</code></p><p>这时候会生成一个编译好的文件 hello.js</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">person</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`hello <span class="subst">$&#123;person&#125;</span>`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> user = <span class="string">&#x27;Tom&#x27;</span>;</span><br><span class="line">sayHello(user);</span><br></pre></td></tr></table></figure><ul><li>TypeScript 使用 <code>:</code> 指定变量的类型</li><li>TypeScript 只会进行静态检查，如果发现有错误，编译的时候就会报错</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> TypeScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Set和Map</title>
+      <link href="2019/10/09/1009/"/>
+      <url>2019/10/09/1009/</url>
+      
+        <content type="html"><![CDATA[<h4 id="ES6新增Set和Map的简单使用"><a href="#ES6新增Set和Map的简单使用" class="headerlink" title="ES6新增Set和Map的简单使用"></a>ES6新增Set和Map的简单使用</h4><h5 id="1-Set"><a href="#1-Set" class="headerlink" title="1. Set"></a>1. Set</h5><h6 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h6><ul><li>Set类似于数组，但成员的值都是唯一的，没有重复的值；</li><li>Set 是一个构造函数；</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list=<span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]);</span><br><span class="line">[...list];</span><br><span class="line"><span class="comment">//[1,2,3,4,5];</span></span><br></pre></td></tr></table></figure><p>Set函数可接收一个数组用来初始化；</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list=<span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]);</span><br><span class="line">[...list] <span class="comment">// [1,2,3,4];</span></span><br><span class="line"></span><br><span class="line">list.add(<span class="number">5</span>);</span><br><span class="line">[...list] <span class="comment">// [1,2,3,4,5]</span></span><br><span class="line"></span><br><span class="line">list.delete(<span class="number">1</span>);</span><br><span class="line">[...list] <span class="comment">// [2,3,4,5]</span></span><br><span class="line"></span><br><span class="line">list.size; <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line">list.has(<span class="number">2</span>) <span class="comment">// true</span></span><br><span class="line">list.has(<span class="number">1</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">list.clear();</span><br><span class="line">[...list]; <span class="comment">// []</span></span><br></pre></td></tr></table></figure><p>Set实例常用内置函数；</p><ul><li>add 添加一个成员</li><li>delete 删除某个成员 返回true/false</li><li>has 判断内部是否有某个成员</li><li>clear 清空内部成员</li><li>.size 内置属性 获取成员个数 类似于Array.length;</li></ul><h5 id="2-Map"><a href="#2-Map" class="headerlink" title="2. Map"></a>2. Map</h5><h6 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h6><p>Map 可接受一个数组作为参数，该数组的成员是一个个表示键值对的数组；</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map =<span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;tom&#x27;</span>],</span><br><span class="line">  [<span class="string">&#x27;age&#x27;</span>,<span class="number">18</span>]  </span><br><span class="line">])</span><br><span class="line">map.size; <span class="comment">// 2</span></span><br><span class="line">map.has(<span class="string">&#x27;name&#x27;</span>); <span class="comment">// true</span></span><br><span class="line">map.get(<span class="string">&#x27;name&#x27;</span>); <span class="comment">// tom</span></span><br><span class="line">map.has(<span class="string">&#x27;age&#x27;</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">map.set(<span class="string">&#x27;sex&#x27;</span>,<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line">map.get(<span class="string">&#x27;sex&#x27;</span>); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">map.delete(<span class="string">&#x27;sex&#x27;</span>);</span><br><span class="line">map.has(<span class="string">&#x27;sex&#x27;</span>); <span class="comment">//false </span></span><br><span class="line"></span><br><span class="line">map.clear(); </span><br><span class="line">map.size <span class="comment">// 0</span></span><br></pre></td></tr></table></figure><p>Map实例常用内置函数；</p><ul><li>set 添加一个成员</li><li>get 获取某个键值对的value</li><li>delete 删除某个键值对 返回true/false</li><li>has 判断内部是否有某个属性</li><li>clear 清空内部成员</li><li>.size 内置属性 获取成员个数 类似于Array.length;</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js下载图片base64格式到本地</title>
+      <link href="2019/10/07/1007/"/>
+      <url>2019/10/07/1007/</url>
+      
+        <content type="html"><![CDATA[<p>话不多说直接贴代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params">imgBase64,fileName</span>)</span>&#123;</span><br><span class="line">downloadFileByBase64(imgBase64,fileName)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dataURLtoBlob</span>(<span class="params">dataurl</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> arr = dataurl.split(<span class="string">&#x27;,&#x27;</span>), mime = arr[<span class="number">0</span>].match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>],</span><br><span class="line">bstr = atob(arr[<span class="number">1</span>]), n = bstr.length, u8arr = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(n);</span><br><span class="line"><span class="keyword">while</span> (n--) &#123;</span><br><span class="line">u8arr[n] = bstr.charCodeAt(n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> Blob([u8arr], &#123; <span class="attr">type</span>: mime &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadFile</span>(<span class="params">url,name=<span class="string">&#x27;What\&#x27;s the fuvk&#x27;</span></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">&quot;a&quot;</span>)</span><br><span class="line">a.setAttribute(<span class="string">&quot;href&quot;</span>,url)</span><br><span class="line">a.setAttribute(<span class="string">&quot;download&quot;</span>,name)</span><br><span class="line">a.setAttribute(<span class="string">&quot;target&quot;</span>,<span class="string">&quot;_blank&quot;</span>)</span><br><span class="line"><span class="keyword">let</span> clickEvent = <span class="built_in">document</span>.createEvent(<span class="string">&quot;MouseEvents&quot;</span>);</span><br><span class="line">clickEvent.initEvent(<span class="string">&quot;click&quot;</span>, <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line">a.dispatchEvent(clickEvent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadFileByBase64</span>(<span class="params">base64,name</span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> myBlob = dataURLtoBlob(base64)</span><br><span class="line"><span class="keyword">var</span> myUrl = URL.createObjectURL(myBlob)</span><br><span class="line">downloadFile(myUrl,name)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"><span class="keyword">let</span> data=<span class="string">&#x27;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEA...&#x27;</span>;</span><br><span class="line">       download(data,<span class="string">&#x27;icon&#x27;</span>);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue 父子组件间的通讯</title>
+      <link href="2019/09/29/0929/"/>
+      <url>2019/09/29/0929/</url>
+      
+        <content type="html"><![CDATA[<h4 id="父组件向子组件传值"><a href="#父组件向子组件传值" class="headerlink" title="父组件向子组件传值"></a>父组件向子组件传值</h4><ol><li>使用props 方式传值，父组件引用组件，使用组件后，可通过子组件内定义的 props 属性，<br>使用该属性名传值到子组件内;</li><li>props 可以传入String,Number,Object,Boolean,Array数据类型;</li><li>prop 验证：设置required 参数 可选择是否当前属性必传;</li><li>default 设置如若不传将展示的内容;</li><li>props 传值为单向数据流;<br>注意:子组件内不能直接修改父组件传来的props；、;</li></ol><h4 id="创建父组件"><a href="#创建父组件" class="headerlink" title="创建父组件"></a>创建父组件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;root&quot;&gt;</span><br><span class="line">    &lt;h1&gt;this is father&lt;&#x2F;h1&gt;</span><br><span class="line">     &lt;show-name :first-name&#x3D;&quot;nick_name&quot; last-name&#x3D;&quot;jack&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import showName from &#39;.&#x2F;children&#39;</span><br><span class="line">export default&#123;</span><br><span class="line">  components:&#123;</span><br><span class="line">    showName,</span><br><span class="line">  &#125;,</span><br><span class="line">  data()&#123;</span><br><span class="line">      return&#123;</span><br><span class="line">        nick_name:&#39;Tom&#39;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure><h4 id="创建子组件"><a href="#创建子组件" class="headerlink" title="创建子组件"></a>创建子组件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;root&quot;&gt;</span><br><span class="line">    this is children</span><br><span class="line">    &lt;p&gt;&#123;&#123;first-name&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;last-name&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default&#123;</span><br><span class="line">  props:&#123;</span><br><span class="line">    &#39;first-name&#39;:&#123;</span><br><span class="line">      type:String,</span><br><span class="line">      required:true,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#39;last-name&#39;:&#123;</span><br><span class="line">      type:String,</span><br><span class="line">      default:&#39;Jack&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  data()&#123;</span><br><span class="line">      return&#123;</span><br><span class="line">      </span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure><h4 id="子组件向父组件传值"><a href="#子组件向父组件传值" class="headerlink" title="子组件向父组件传值"></a>子组件向父组件传值</h4><ol><li>子组件向父组件传值，不能直接实时传递数据，必须通过事件触发。</li><li>通过 $emit 方法 实现父子间通讯；</li></ol><p>Father</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;root&quot;&gt;</span><br><span class="line">    &lt;h1&gt;this is father&lt;&#x2F;h1&gt;</span><br><span class="line">    parent: 这是我的子组件传给我的值&#123;&#123;num&#125;&#125;</span><br><span class="line">     &lt;show-name :first-name&#x3D;&quot;nick_name&quot; last-name&#x3D;&quot;jack&quot; @getNum&#x3D;&quot;getValue&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import showName from &#39;.&#x2F;children&#39;</span><br><span class="line">export default&#123;</span><br><span class="line">  components:&#123;</span><br><span class="line">    showName,</span><br><span class="line">  &#125;,</span><br><span class="line">  data()&#123;</span><br><span class="line">      return&#123;</span><br><span class="line">        nick_name:&#39;Tom&#39;,</span><br><span class="line">        num:&#39;&#39;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    getValue(val)&#123;</span><br><span class="line">      this.num&#x3D;val;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure><p>Child </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;root&quot;&gt;</span><br><span class="line">    this is children</span><br><span class="line">    &lt;p&gt;&#123;&#123;first-name&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;last-name&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;sendValue&quot;&gt;点击向父组件发送消息&lt;&#x2F;button&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default&#123;</span><br><span class="line">  props:&#123;</span><br><span class="line">    &#39;first-name&#39;:&#123;</span><br><span class="line">      type:String,</span><br><span class="line">      required:true,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#39;last-name&#39;:&#123;</span><br><span class="line">      type:String,</span><br><span class="line">      default:&#39;Jack&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  data()&#123;</span><br><span class="line">      return&#123;</span><br><span class="line">        num:0</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    sendValue()&#123;</span><br><span class="line">        this.$emit(&#39;getNum&#39;,this.num++);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>通过ResizeObserver 实现监听dom元素的内容区域变化</title>
+      <link href="2019/09/24/0924/"/>
+      <url>2019/09/24/0924/</url>
+      
+        <content type="html"><![CDATA[<h4 id="ResizeObserver-监控dom标签变化"><a href="#ResizeObserver-监控dom标签变化" class="headerlink" title="ResizeObserver 监控dom标签变化"></a>ResizeObserver 监控dom标签变化</h4><ul><li>ResizeObserver  接口可以监听到 Element 的内容区域或 SVGElement的边界框改变</li><li>ResizeObserver避免了在自身回调中调整大小，从而触发的无限回调和循环依赖。<br>它仅通过在后续帧中处理DOM中更深层次的元素来实现这一点。如果（浏览器）遵循规范，<br>只会在绘制前或布局后触发调用。</li></ul><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul><li><p>构造器</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Observer =<span class="keyword">new</span> ResizeObserver(<span class="function"><span class="params">entries</span>=&gt;</span>&#123;</span><br><span class="line">entries.forEach(<span class="function"><span class="params">entry</span>=&gt;</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;大小位置&#x27;</span>, entry.contentRect);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;监听的DOM&#x27;</span>, entry);</span><br><span class="line">&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li><li><p>添加监听dom对象</p></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Observer.observe(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;.element&#x27;</span>));</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何让高度不固定的盒子实现在另一盒子内垂直居中</title>
+      <link href="2018/11/08/0914/"/>
+      <url>2018/11/08/0914/</url>
+      
+        <content type="html"><![CDATA[<h4 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h4><h5 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#0D0D0D</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">background-color</span>: palegoldenrod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h4><h5 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>: row;</span><br><span class="line">    <span class="attribute">justify-content</span>: space-around;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#0D0D0D</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: palegoldenrod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p><img src="https://blog.oldmoons.cn/static/img/0914-1.png" alt="Image text"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Highcharts 快速上手</title>
+      <link href="2018/07/13/0916/"/>
+      <url>2018/07/13/0916/</url>
+      
+        <content type="html"><![CDATA[<h3 id="引入-Highcharts"><a href="#引入-Highcharts" class="headerlink" title="引入 Highcharts"></a>引入 Highcharts</h3><p>Highcharts 最基本的运行只需要一个 JS 文件，即 highcharts.js，以使用 CDN 文件为例，对应的代码是：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://cdn.highcharts.com.cn/highcharts/highcharts.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="创建一个简单的图表"><a href="#创建一个简单的图表" class="headerlink" title="创建一个简单的图表"></a>创建一个简单的图表</h3><p>在绘图前我们需要为 Highcharts 准备一个 DOM 容器，并指定其大小</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 600px;height:400px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>然后通过 Highcharts 的初始化函数 Highcharts.chart 来创建图表，该函数接受两个参数，第一个参数是 DOM 容器的 Id，第二个参数是图表配置，代码如下：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>第一个 Highcharts 图表<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 图表容器 DOM --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 600px;height:400px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入 highcharts.js --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://cdn.highcharts.com.cn/highcharts/highcharts.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 图表配置</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> options = &#123;</span></span><br><span class="line">            chart: &#123;</span><br><span class="line"><span class="javascript">                type: <span class="string">&#x27;bar&#x27;</span>                          <span class="comment">//指定图表的类型，默认是折线图（line）</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            title: &#123;</span><br><span class="line"><span class="javascript">                text: <span class="string">&#x27;我的第一个图表&#x27;</span>                 <span class="comment">// 标题</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            xAxis: &#123;</span><br><span class="line"><span class="javascript">                categories: [<span class="string">&#x27;苹果&#x27;</span>, <span class="string">&#x27;香蕉&#x27;</span>, <span class="string">&#x27;橙子&#x27;</span>]   <span class="comment">// x 轴分类</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            yAxis: &#123;</span><br><span class="line">                title: &#123;</span><br><span class="line"><span class="javascript">                    text: <span class="string">&#x27;吃水果个数&#x27;</span>                <span class="comment">// y 轴标题</span></span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"><span class="javascript">            series: [&#123;                              <span class="comment">// 数据列</span></span></span><br><span class="line"><span class="javascript">                name: <span class="string">&#x27;小明&#x27;</span>,                        <span class="comment">// 数据列名</span></span></span><br><span class="line"><span class="javascript">                data: [<span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>]                     <span class="comment">// 数据</span></span></span><br><span class="line">            &#125;, &#123;</span><br><span class="line"><span class="javascript">                name: <span class="string">&#x27;小红&#x27;</span>,</span></span><br><span class="line">                data: [5, 7, 3]</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;;</span><br><span class="line"><span class="javascript">        <span class="comment">// 图表初始化函数</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> chart = Highcharts.chart(<span class="string">&#x27;container&#x27;</span>, options);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="这样你的第一个图表就诞生了！"><a href="#这样你的第一个图表就诞生了！" class="headerlink" title="这样你的第一个图表就诞生了！"></a>这样你的第一个图表就诞生了！</h3><p><img src="https://blog.oldmoons.cn/static/img/0916-1.png" alt="Image text"></p><p>具体使用请参照 Highcharts文档：<a href="https://www.highcharts.com.cn/">https://www.highcharts.com.cn/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据可视化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CSS修改浏览器滚动条样式</title>
+      <link href="2018/07/08/0913/"/>
+      <url>2018/07/08/0913/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*整体*/</span></span><br><span class="line"><span class="selector-class">.innerbox</span><span class="selector-pseudo">::-webkit-scrollbar</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">4px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">4px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*滚动块 */</span></span><br><span class="line"><span class="selector-class">.innerbox</span><span class="selector-pseudo">::-webkit-scrollbar-thumb</span>&#123;</span><br><span class="line">    <span class="attribute">border-radius</span>:<span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-shadow</span>:<span class="built_in">inset005pxrgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.2</span>);</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*轨道 */</span></span><br><span class="line"><span class="selector-class">.innerbox</span><span class="selector-pseudo">::-webkit-scrollbar-track</span>&#123;</span><br><span class="line">　　<span class="attribute">-webkit-box-shadow</span>:<span class="built_in">inset005pxrgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.2</span>);</span><br><span class="line">　　<span class="attribute">border-radius</span>:<span class="number">0</span>;</span><br><span class="line">　　<span class="attribute">background</span>:<span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.1</span>);</span><br><span class="line">　&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>WebStorm 常用快捷键</title>
+      <link href="2018/07/01/0915/"/>
+      <url>2018/07/01/0915/</url>
+      
+        <content type="html"><![CDATA[<p>WebStorm 常用快捷键</p><ul><li>Ctrl+X |剪切行</li><li>Ctrl+D |复制行</li><li>Ctrl+F |查找关键字</li><li>Ctrl+R |替换文本</li><li>Ctrl+G |查找行数</li><li>Ctrl+E |最近打开的文件</li><li>Ctrl+P |方法参数提示</li><li>Ctrl+Alt+L |格式化代码</li><li>Ctrl+Shift+Up/Down |代码向上/下移动</li><li>Alt + Up/Down  |跳转到上一个/下一个方法</li><li>ctrl+Shift+N |通过文件名快速查找工程内的文件</li><li>ctrl+Shift+alt+N |通过一个字符快速查找位置</li><li>选中文本&amp;按Ctrl+Shift+F7  |高亮显示所有该文本，按Esc高亮消失</li><li>F11 |Toggle bookmark 切换标记</li><li>Shift+F2/F2 |高亮错误或警告快速定位</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>移动端项目rem适配</title>
+      <link href="2018/06/12/0912/"/>
+      <url>2018/06/12/0912/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-引入rem-js"><a href="#1-引入rem-js" class="headerlink" title="1.引入rem.js"></a>1.引入rem.js</h4><h5 id="rem-js"><a href="#rem-js" class="headerlink" title="rem.js"></a>rem.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">flexible</span>(<span class="params"><span class="built_in">window</span>, <span class="built_in">document</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement</span><br><span class="line">    <span class="keyword">var</span> dpr = <span class="built_in">window</span>.devicePixelRatio || <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// adjust body font size</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setBodyFontSize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.body) &#123;</span><br><span class="line">            <span class="built_in">document</span>.body.style.fontSize = (<span class="number">12</span> * dpr) + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">document</span>.addEventListener(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, setBodyFontSize)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    setBodyFontSize();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// set 1rem = viewWidth / 10</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setRemUnit</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> rem = docEl.clientWidth / <span class="number">3.75</span></span><br><span class="line">        docEl.style.fontSize = rem + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setRemUnit()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// reset rem unit on page resize</span></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;resize&#x27;</span>, setRemUnit)</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;pageshow&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">            setRemUnit()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// detect 0.5px supports</span></span><br><span class="line">    <span class="keyword">if</span> (dpr &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> fakeBody = <span class="built_in">document</span>.createElement(<span class="string">&#x27;body&#x27;</span>)</span><br><span class="line">        <span class="keyword">var</span> testElement = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">        testElement.style.border = <span class="string">&#x27;.5px solid transparent&#x27;</span></span><br><span class="line">        fakeBody.appendChild(testElement)</span><br><span class="line">        docEl.appendChild(fakeBody)</span><br><span class="line">        <span class="keyword">if</span> (testElement.offsetHeight === <span class="number">1</span>) &#123;</span><br><span class="line">            docEl.classList.add(<span class="string">&#x27;hairlines&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        docEl.removeChild(fakeBody)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;(<span class="built_in">window</span>, <span class="built_in">document</span>))</span><br></pre></td></tr></table></figure><h4 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0.14rem</span>; <span class="comment">/* =&gt; 14px*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 移动端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
