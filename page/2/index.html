@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>oldMoon - oldmoon‘s blog</title><meta name="author" content="oldMoon"><meta name="copyright" content="oldMoon"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="一分耕耘，一分收获">
+<meta property="og:type" content="website">
+<meta property="og:title" content="oldMoon">
+<meta property="og:url" content="https://blog.oldmoons.cn/page/2/index.html">
+<meta property="og:site_name" content="oldMoon">
+<meta property="og:description" content="一分耕耘，一分收获">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.oldmoons.cn/null">
+<meta property="article:author" content="oldMoon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.oldmoons.cn/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.oldmoons.cn/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-11-24 14:42:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">oldMoon</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">oldMoon</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2018/07/13/0916/" title="Highcharts 快速上手">     <img class="post_bg" src="https://blog.oldmoons.cn/static/img/0916-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Highcharts 快速上手"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/07/13/0916/" title="Highcharts 快速上手">Highcharts 快速上手</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-07-13T01:59:11.000Z" title="发表于 2018-07-13 09:59:11">2018-07-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span></div><div class="content">引入 HighchartsHighcharts 最基本的运行只需要一个 JS 文件，即 highcharts.js，以使用 CDN 文件为例，对应的代码是：
+1&lt;script src=&quot;http://cdn.highcharts.com.cn/highcharts/highcharts.js&quot;&gt;&lt;/script&gt;
+创建一个简单的图表在绘图前我们需要为 Highcharts 准备一个 DOM 容器，并指定其大小
+1&lt;div id=&quot;container&quot; style=&quot;width: 600px;height:400px;&quot;&gt;&lt;/div&gt;
+然后通过 Highcharts 的初始化函数 Highcharts.chart 来创建图表，该函数接受两个参数，第一个参数是 DOM 容器的 Id，第二个参数是图表配置，代码如下：
+1234567891011121314151617181920212223242526272829303132333435363738394041&lt;!DOCTYPE ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2018/07/08/0913/" title="CSS修改浏览器滚动条样式">     <img class="post_bg" src="https://www.runoob.com/images/transforms.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS修改浏览器滚动条样式"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/07/08/0913/" title="CSS修改浏览器滚动条样式">CSS修改浏览器滚动条样式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-07-08T05:12:52.000Z" title="发表于 2018-07-08 13:12:52">2018-07-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span></div><div class="content">1234567891011121314151617/*整体*/.innerbox::-webkit-scrollbar&#123;    width:4px;    height:4px;&#125;/*滚动块 */.innerbox::-webkit-scrollbar-thumb&#123;    border-radius:5px;    -webkit-box-shadow:inset005pxrgba(0,0,0,0.2);    background:rgba(0,0,0,0.2);&#125;/*轨道 */.innerbox::-webkit-scrollbar-track&#123;　　-webkit-box-shadow:inset005pxrgba(0,0,0,0.2);　　border-radius:0;　　background:rgba(0,0,0,0.1);　&#125;
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2018/07/01/0915/" title="WebStorm 常用快捷键">     <img class="post_bg" src="https://www.jetbrains.com/webstorm/img/why-illustration.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WebStorm 常用快捷键"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/07/01/0915/" title="WebStorm 常用快捷键">WebStorm 常用快捷键</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-07-01T14:08:35.000Z" title="发表于 2018-07-01 22:08:35">2018-07-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span></div><div class="content">WebStorm 常用快捷键
+
+Ctrl+X |剪切行
+Ctrl+D |复制行
+Ctrl+F |查找关键字
+Ctrl+R |替换文本
+Ctrl+G |查找行数
+Ctrl+E |最近打开的文件
+Ctrl+P |方法参数提示
+Ctrl+Alt+L |格式化代码
+Ctrl+Shift+Up/Down |代码向上/下移动
+Alt + Up/Down  |跳转到上一个/下一个方法
+ctrl+Shift+N |通过文件名快速查找工程内的文件
+ctrl+Shift+alt+N |通过一个字符快速查找位置
+选中文本&amp;按Ctrl+Shift+F7  |高亮显示所有该文本，按Esc高亮消失
+F11 |Toggle bookmark 切换标记
+Shift+F2/F2 |高亮错误或警告快速定位
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2018/06/12/0912/" title="移动端项目rem适配">     <img class="post_bg" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1600174498105&amp;di=b62e7d3f9809a58033d7ad1605baf42a&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.91huoke.com%2Fxxfl%2Fhk91%2Fcustomer%2F31827%2FKhWXX30aThCB66kmoF9tePQr6S9uf4bOb2TtAQCP.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="移动端项目rem适配"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/06/12/0912/" title="移动端项目rem适配">移动端项目rem适配</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-06-12T03:08:35.000Z" title="发表于 2018-06-12 11:08:35">2018-06-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span></div><div class="content">1.引入rem.jsrem.js12345678910111213141516171819202122232425262728293031323334353637383940414243(function flexible(window, document) &#123;    var docEl = document.documentElement    var dpr = window.devicePixelRatio || 1    // adjust body font size    function setBodyFontSize() &#123;        if (document.body) &#123;            document.body.style.fontSize = (12 * dpr) + &#x27;px&#x27;        &#125; else &#123;            document.addEventListener(&#x27;DOMContentLoaded&#x27;, setBodyFontSize)     ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">oldMoon</div><div class="author-info__description">一分耕耘，一分收获</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2019/10/14/1016/" title="【初识TypeScript】【05】TypeScript函数的类型"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【初识TypeScript】【05】TypeScript函数的类型"/></a><div class="content"><a class="title" href="/2019/10/14/1016/" title="【初识TypeScript】【05】TypeScript函数的类型">【初识TypeScript】【05】TypeScript函数的类型</a><time datetime="2019-10-14T08:01:15.000Z" title="发表于 2019-10-14 16:01:15">2019-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/10/14/1015/" title="【初识TypeScript】【04】TypeScript数组的类型"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【初识TypeScript】【04】TypeScript数组的类型"/></a><div class="content"><a class="title" href="/2019/10/14/1015/" title="【初识TypeScript】【04】TypeScript数组的类型">【初识TypeScript】【04】TypeScript数组的类型</a><time datetime="2019-10-14T02:22:31.000Z" title="发表于 2019-10-14 10:22:31">2019-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/10/12/1014/" title="【初识TypeScript】【03】TypeScript的interface(接口)"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【初识TypeScript】【03】TypeScript的interface(接口)"/></a><div class="content"><a class="title" href="/2019/10/12/1014/" title="【初识TypeScript】【03】TypeScript的interface(接口)">【初识TypeScript】【03】TypeScript的interface(接口)</a><time datetime="2019-10-12T02:34:24.000Z" title="发表于 2019-10-12 10:34:24">2019-10-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/10/12/1013/" title="【初识TypeScript】【02】TypeScript的数据类型"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【初识TypeScript】【02】TypeScript的数据类型"/></a><div class="content"><a class="title" href="/2019/10/12/1013/" title="【初识TypeScript】【02】TypeScript的数据类型">【初识TypeScript】【02】TypeScript的数据类型</a><time datetime="2019-10-12T01:52:24.000Z" title="发表于 2019-10-12 09:52:24">2019-10-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/10/12/1012/" title="【初识TypeScript】【01】Hello TypeScript"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【初识TypeScript】【01】Hello TypeScript"/></a><div class="content"><a class="title" href="/2019/10/12/1012/" title="【初识TypeScript】【01】Hello TypeScript">【初识TypeScript】【01】Hello TypeScript</a><time datetime="2019-10-12T01:44:42.000Z" title="发表于 2019-10-12 09:44:42">2019-10-12</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/web/"><span class="card-category-list-name">web</span><span class="card-category-list-count">14</span></a></li>
+            
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/CSS/" style="font-size: 1.23em; color: #999ea6">CSS</a> <a href="/tags/TypeScript/" style="font-size: 1.5em; color: #99a9bf">TypeScript</a> <a href="/tags/Vue/" style="font-size: 1.1em; color: #999">Vue</a> <a href="/tags/javascript/" style="font-size: 1.37em; color: #99a4b2">javascript</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: #999">数据可视化</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 1.1em; color: #999">移动端</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/11/"><span class="card-archive-list-date">十一月 2018</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/07/"><span class="card-archive-list-date">七月 2018</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/06/"><span class="card-archive-list-date">六月 2018</span><span class="card-archive-list-count">1</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">14</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-11-24T06:42:26.191Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By oldMoon</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
