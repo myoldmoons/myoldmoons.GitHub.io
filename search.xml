@@ -5,8 +5,8 @@
     
     <entry>
       <title>MySQL基础命令</title>
-      <link href="2019/12/16/1226/"/>
-      <url>2019/12/16/1226/</url>
+      <link href="2019/12/16/1216/"/>
+      <url>2019/12/16/1216/</url>
       
         <content type="html"><![CDATA[<h4 id="Mysql常用命令"><a href="#Mysql常用命令" class="headerlink" title="Mysql常用命令"></a>Mysql常用命令</h4><ul><li>  mysql -u root -p; 登录mysql；</li><li>  select user,host from mysql.user; 查看所有用户</li><li>  ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘password’ PASSWORD EXPIRE NEVER; #修改加密规则</li><li>  ALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘password’;更新密码</li><li>  use mysql;</li><li>  select user.plugin from user where user=’root’; 查看当前密码加密方式；</li><li>  show databases; 查看所有数据库</li><li>  show tables; 查看当前数据库下的数据表；</li><li>  create database <name>;  创建数据库</li><li>  drop database <name>;  删除数据库</li><li>  select * from <table_name>;  从table表中查询所有列数据</li><li>  select * from <table_name> where id=1;  查询id为1的所有列数据；</li><li>  insert into table(column1,column2) values (value1,value2); 插入数据</li><li>  delete from <table_name> where id=1; 删除id为1 的行；</li><li>  rename table old_name to new_name; 重命名；</li></ul>]]></content>
       
