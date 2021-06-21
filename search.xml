@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>whistle 抓包工具</title>
+      <link href="2020/06/21/2021-06-21/"/>
+      <url>2020/06/21/2021-06-21/</url>
+      
+        <content type="html"><![CDATA[<h2 id="关于whistle"><a href="#关于whistle" class="headerlink" title="关于whistle"></a>关于whistle</h2><p>whistle(读音[ˈwɪsəl]，拼音[wēisǒu])基于Node实现的跨平台web调试代理工具，<br>类似的工具有Windows平台上的Fiddler，主要用于查看、修改HTTP、HTTPS、Websocket的请求、<br>响应，也可以作为HTTP代理服务器使用，不同于Fiddler通过断点修改请求响应的方式，<br>whistle采用的是类似配置系统hosts的方式，一切操作都可以通过配置实现，支持域名、路径、<br>正则表达式、通配符、通配路径等多种匹配方式，且可以通过Node模块扩展功能：</p><h2 id="安装启动"><a href="#安装启动" class="headerlink" title="安装启动"></a>安装启动</h2><h4 id="1-安装whistle"><a href="#1-安装whistle" class="headerlink" title="1 安装whistle"></a>1 安装whistle</h4><p><code>$ npm install -g whistle</code></p><h4 id="2-启动whistle"><a href="#2-启动whistle" class="headerlink" title="2 启动whistle"></a>2 启动whistle</h4><p><code>$ w2 start</code></p><h4 id="3-停止whistle"><a href="#3-停止whistle" class="headerlink" title="3 停止whistle"></a>3 停止whistle</h4><p><code>$ w2 stop</code></p><h4 id="4-配置代理"><a href="#4-配置代理" class="headerlink" title="4 配置代理"></a>4 配置代理</h4><p>1：代理服务器：127.0.0.1</p><p>2：默认端口：8899</p><h4 id="5-代理配置方式"><a href="#5-代理配置方式" class="headerlink" title="5 代理配置方式"></a>5 代理配置方式</h4><p>1：Mac: System Preferences &gt; Network &gt; Advanced &gt; Proxies &gt; HTTP or HTTPS</p><p>2：Linux: Settings &gt; Network &gt; VPN &gt; Network Proxy &gt; Manual</p><p>3： 浏览器代理，安装Chrome代理插件：推荐安装SwitchyOmega</p><p>4：移动端需要在设置中配置当前Wi-Fi的代理</p><h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><p>rules功能</p><p>1 设置hosts</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">www.ifeng.com 127.0.0.1</span><br><span class="line"># or</span><br><span class="line">127.0.0.1 www.ifeng.com</span><br></pre></td></tr></table></figure><p>2 指定<a href="http://www.ifeng.com的ip和端口,把请求转发到本地8080端口,这个在平时开发中可以用来去掉url中的端口号/">www.ifeng.com的ip和端口，把请求转发到本地8080端口，这个在平时开发中可以用来去掉url中的端口号</a>:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># www.ifeng.com 127.0.0.1</span><br><span class="line">www.ifeng.com 127.0.0.1:8080</span><br><span class="line"># or</span><br><span class="line">127.0.0.1:8080 www.ifeng.com</span><br></pre></td></tr></table></figure><p>3 也可以用某个域名的ip设置hosts</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">www.ifeng.com host://www.qq.com:8080</span><br><span class="line"># or</span><br><span class="line">host://www.qq.com:8080 www.ifeng.com</span><br></pre></td></tr></table></figure><h2 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h2><h3 id="域名匹配"><a href="#域名匹配" class="headerlink" title="域名匹配"></a>域名匹配</h3><p>1：域名匹配，不仅支持匹配某个域名，也可以限定端口号、协议(http、https、ws、wss、tunnel)<br>，如果operatorURI不为请求路径，pattern和operatorURI位置可以调换：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 匹配域名www.test.com下的所有请求，包括http、https、ws、wss，tunnel</span><br><span class="line">www.test.com operatorURI</span><br><span class="line"></span><br><span class="line"># 匹配域名www.test.com下的所有http请求</span><br><span class="line">http://www.test.com operatorURI</span><br><span class="line"></span><br><span class="line"># 匹配域名www.test.com下的所有https请求</span><br><span class="line">https://www.test.com operatorURI</span><br><span class="line"></span><br><span class="line"># 上述匹配也可以限定域名的端口号</span><br><span class="line">www.test.com:8888 operatorURI # 8888端口</span><br><span class="line">www.test.com/ operatorURI # http为80端口，其它443端口</span><br></pre></td></tr></table></figure><h3 id="路径匹配"><a href="#路径匹配" class="headerlink" title="路径匹配"></a>路径匹配</h3><p>1:指定匹配某个路径，也可以限定端口号、协议(http、https、ws、wss)<br>等等，如果operatorURI不为请求路径，pattern和operatorURI位置可以调换。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 限定请求协议，只能匹配http请求</span><br><span class="line">http://www.test.com/xxx operatorURI</span><br><span class="line">http://www.test.com:8080/xxx operatorURI</span><br><span class="line"></span><br><span class="line"># 匹配指定路径下的所有请求</span><br><span class="line">www.test.com/xxx operatorURI</span><br><span class="line">www.test.com:8080/xxx operatorURI</span><br></pre></td></tr></table></figure><h2 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a>文档地址</h2><p><a href="http://wproxy.org/whistle/webui/">点我传送</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IntersectionObserver</title>
       <link href="2020/03/16/2021-03-16/"/>
       <url>2020/03/16/2021-03-16/</url>
