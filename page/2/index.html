@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>oldMoon - oldmoon‘s blog</title><meta name="author" content="oldMoon"><meta name="copyright" content="oldMoon"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="一分耕耘，一分收获">
+<meta property="og:type" content="website">
+<meta property="og:title" content="oldMoon">
+<meta property="og:url" content="https://blog.oldmoons.cn/page/2/index.html">
+<meta property="og:site_name" content="oldMoon">
+<meta property="og:description" content="一分耕耘，一分收获">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.oldmoons.cn/img/favicon.png">
+<meta property="article:author" content="oldMoon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.oldmoons.cn/img/favicon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.oldmoons.cn/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-06-21 15:34:52'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/favicon.png" onerror="onerror=null;src='/img/404.jpg'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-link"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/work.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">oldMoon</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-link"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">oldMoon</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2019/10/09/1009/" title="Set和Map">Set和Map</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-09T02:09:12.000Z" title="发表于 2019-10-09 10:09:12">2019-10-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/javascript/">javascript</a></span></div><div class="content">ES6新增Set和Map的简单使用1. Set基本用法
+Set类似于数组，但成员的值都是唯一的，没有重复的值；
+Set 是一个构造函数；
+
+123const list=new Set([1,2,2,3,4,5]);[...list];//[1,2,3,4,5];
+Set函数可接收一个数组用来初始化；
+12345678910111213141516const list=new Set([1,2,3,4]);[...list] // [1,2,3,4];list.add(5);[...list] // [1,2,3,4,5]list.delete(1);[...list] // [2,3,4,5]list.size; // 4list.has(2) // truelist.has(1) // falselist.clear();[...list]; // []
+Set实例常用内置函数；
+
+add 添加一个成员
+delete 删除某个成员 返回true/false
+has 判断内部是否有某个成员
+clear 清空内部成员
+.size 内置属性 获取成员个数 类似于Array.length;
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2019/10/07/1007/" title="js下载图片base64格式到本地">js下载图片base64格式到本地</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-10-07T07:48:22.000Z" title="发表于 2019-10-07 15:48:22">2019-10-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/javascript/">javascript</a></span></div><div class="content">话不多说直接贴代码：
+123456789101112131415161718192021222324252627282930function download(imgBase64,fileName)&#123;	downloadFileByBase64(imgBase64,fileName)	function dataURLtoBlob(dataurl) &#123;		var arr = dataurl.split(&#x27;,&#x27;), mime = arr[0].match(/:(.*?);/)[1],			bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);		while (n--) &#123;			u8arr[n] = bstr.charCodeAt(n);		&#125;		return new Blob([u8arr], &#123; type: mime &#125;);	&#125;	function downloadFile(url,name=&#x27;What\&#x27;s  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2019/09/29/0929/" title="Vue 父子组件间的通讯">Vue 父子组件间的通讯</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-29T01:58:35.000Z" title="发表于 2019-09-29 09:58:35">2019-09-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue/">Vue</a></span></div><div class="content">父组件向子组件传值
+使用props 方式传值，父组件引用组件，使用组件后，可通过子组件内定义的 props 属性，使用该属性名传值到子组件内;
+props 可以传入String,Number,Object,Boolean,Array数据类型;
+prop 验证：设置required 参数 可选择是否当前属性必传;
+default 设置如若不传将展示的内容;
+props 传值为单向数据流;注意:子组件内不能直接修改父组件传来的props；、;
+
+创建父组件12345678910111213141516171819&lt;template&gt;  &lt;div class&#x3D;&quot;root&quot;&gt;    &lt;h1&gt;this is father&lt;&#x2F;h1&gt;     &lt;show-name :first-name&#x3D;&quot;nick_name&quot; last-name&#x3D;&quot;jack&quot; &#x2F;&gt;  &lt;&#x2F;div&gt;&lt;&#x2F;template&gt;& ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2019/09/24/0924/" title="通过ResizeObserver 实现监听dom元素的内容区域变化">通过ResizeObserver 实现监听dom元素的内容区域变化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2019-09-24T03:03:21.000Z" title="发表于 2019-09-24 11:03:21">2019-09-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/javascript/">javascript</a></span></div><div class="content">ResizeObserver 监控dom标签变化
+ResizeObserver  接口可以监听到 Element 的内容区域或 SVGElement的边界框改变
+ResizeObserver避免了在自身回调中调整大小，从而触发的无限回调和循环依赖。它仅通过在后续帧中处理DOM中更深层次的元素来实现这一点。如果（浏览器）遵循规范，只会在绘制前或布局后触发调用。
+
+使用
+构造器
+123456const Observer =new ResizeObserver(entries=&gt;&#123;	entries.forEach(entry=&gt;&#123;		console.log(&#x27;大小位置&#x27;, entry.contentRect);		console.log(&#x27;监听的DOM&#x27;, entry);	&#125;)&#125;)
+
+添加监听dom对象
+
+
+1Observer.observe(document.querySelector(&#x27;.element&#x27;));
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/11/08/0914/" title="如何让高度不固定的盒子实现在另一盒子内垂直居中">如何让高度不固定的盒子实现在另一盒子内垂直居中</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-11-08T02:46:03.000Z" title="发表于 2018-11-08 10:46:03">2018-11-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/CSS/">CSS</a></span></div><div class="content">第一种方式定位1234567891011121314.box&#123;    width: 400px;    height: 400px;    position:relative;    border: 1px solid #0D0D0D;&#125;.box div&#123;    width: 100px;    height: 100px;    position:absolute;    top: 50%;    transform: translateY(-50%);    background-color: palegoldenrod;&#125;
+
+第二种方式flex布局1234567891011121314.box&#123;    width: 400px;    height: 400px;    display: flex;    flex-direction: row;    justify-content: space-around;    align-items: center;    border: 1px solid #0D0D0D;&#125; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/07/13/0916/" title="Highcharts 快速上手">Highcharts 快速上手</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-07-13T01:59:11.000Z" title="发表于 2018-07-13 09:59:11">2018-07-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></span></div><div class="content">引入 HighchartsHighcharts 最基本的运行只需要一个 JS 文件，即 highcharts.js，以使用 CDN 文件为例，对应的代码是：
+1&lt;script src=&quot;http://cdn.highcharts.com.cn/highcharts/highcharts.js&quot;&gt;&lt;/script&gt;
+创建一个简单的图表在绘图前我们需要为 Highcharts 准备一个 DOM 容器，并指定其大小
+1&lt;div id=&quot;container&quot; style=&quot;width: 600px;height:400px;&quot;&gt;&lt;/div&gt;
+然后通过 Highcharts 的初始化函数 Highcharts.chart 来创建图表，该函数接受两个参数，第一个参数是 DOM 容器的 Id，第二个参数是图表配置，代码如下：
+1234567891011121314151617181920212223242526272829303132333435363738394041&lt;!DOCTYPE ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/07/08/0913/" title="CSS修改浏览器滚动条样式">CSS修改浏览器滚动条样式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-07-08T05:12:52.000Z" title="发表于 2018-07-08 13:12:52">2018-07-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/CSS/">CSS</a></span></div><div class="content">1234567891011121314151617/*整体*/.innerbox::-webkit-scrollbar&#123;    width:4px;    height:4px;&#125;/*滚动块 */.innerbox::-webkit-scrollbar-thumb&#123;    border-radius:5px;    -webkit-box-shadow:rgba(0,0,0,0.2);    background:rgba(0,0,0,0.2);&#125;/*轨道 */.innerbox::-webkit-scrollbar-track&#123;　　-webkit-box-shadow:rgba(0,0,0,0.2);　　border-radius:0;　　background:rgba(0,0,0,0.1);　&#125;
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/07/01/0915/" title="WebStorm 常用快捷键">WebStorm 常用快捷键</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-07-01T14:08:35.000Z" title="发表于 2018-07-01 22:08:35">2018-07-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">WebStorm 常用快捷键
+
+Ctrl+X |剪切行
+Ctrl+D |复制行
+Ctrl+F |查找关键字
+Ctrl+R |替换文本
+Ctrl+G |查找行数
+Ctrl+E |最近打开的文件
+Ctrl+P |方法参数提示
+Ctrl+Alt+L |格式化代码
+Ctrl+Shift+Up/Down |代码向上/下移动
+Alt + Up/Down  |跳转到上一个/下一个方法
+ctrl+Shift+N |通过文件名快速查找工程内的文件
+ctrl+Shift+alt+N |通过一个字符快速查找位置
+选中文本&amp;按Ctrl+Shift+F7  |高亮显示所有该文本，按Esc高亮消失
+F11 |Toggle bookmark 切换标记
+Shift+F2/F2 |高亮错误或警告快速定位
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2018/06/12/0912/" title="移动端项目rem适配">移动端项目rem适配</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2018-06-12T03:08:35.000Z" title="发表于 2018-06-12 11:08:35">2018-06-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/web/">web</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a></span></div><div class="content">1.引入rem.jsrem.js12345678910111213141516171819202122232425262728293031323334353637383940414243(function flexible(window, document) &#123;    var docEl = document.documentElement    var dpr = window.devicePixelRatio || 1    // adjust body font size    function setBodyFontSize() &#123;        if (document.body) &#123;            document.body.style.fontSize = (12 * dpr) + &#x27;px&#x27;        &#125; else &#123;            document.addEventListener(&#x27;DOMContentLoaded&#x27;, setBodyFontSize)     ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="avatar"/><div class="author-info__name">oldMoon</div><div class="author-info__description">一分耕耘，一分收获</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/myoldmoons"><i class="fab fa-github"></i><span>GitHub</span></a></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">时不时的k能会写点什么吧</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/06/21/2021-06-21/" title="whistle 抓包工具">whistle 抓包工具</a><time datetime="2020-06-21T06:40:22.000Z" title="发表于 2020-06-21 14:40:22">2020-06-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/03/16/2021-03-16/" title="IntersectionObserver">IntersectionObserver</a><time datetime="2020-03-16T03:35:02.000Z" title="发表于 2020-03-16 11:35:02">2020-03-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2019/12/18/1218/" title="ES6 新增常用扩展">ES6 新增常用扩展</a><time datetime="2019-12-18T09:32:15.000Z" title="发表于 2019-12-18 17:32:15">2019-12-18</time></div></div></div></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/CSS/" style="font-size: 1.23em; color: rgb(8, 140, 181)">CSS</a><a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.23em; color: rgb(52, 60, 121)">工具</a><a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 1.1em; color: rgb(162, 27, 5)">移动端</a><a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: rgb(100, 163, 117)">数据可视化</a><a href="/tags/javascript/" style="font-size: 1.5em; color: rgb(12, 180, 137)">javascript</a><a href="/tags/Vue/" style="font-size: 1.1em; color: rgb(52, 64, 19)">Vue</a><a href="/tags/TypeScript/" style="font-size: 1.37em; color: rgb(56, 55, 71)">TypeScript</a><a href="/tags/MySql/" style="font-size: 1.1em; color: rgb(167, 147, 13)">MySql</a></div></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">19</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-06-21T07:34:52.394Z"></div></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/work.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2017-2020 - 2021 By oldMoon</div><div class="footer_custom_text">Thank you so much for seeing here</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    var typed = new Typed("#subtitle", {
+      strings: "一分耕耘 一分收获,No pain no gain".split(","),
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '一分耕耘 一分收获'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') subtitleType()
+  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
+} else {
+  subtitleType()
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script></div></body></html>
