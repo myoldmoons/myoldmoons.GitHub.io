@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title></title>
-      <link href="2022/04/02/11/"/>
-      <url>2022/04/02/11/</url>
-      
-        <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Title</title></head><body><div class="progress"><svgwidth="200"height="200"viewBox="0 0 230 230"transform="rotate(270)"><defs><linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F34D4D" /><stop offset="100%" stop-color="#F27D31" /></linearGradient></defs>　　　　　　　　<circlecx="115"cy="115"r="87"fill="none"stroke="#cccccc"stroke-width="10"/>　　　　　　<circlecx="115"cy="115"r="87"fill="none"stroke="url(#orange)"stroke-width="10"stroke-dasharray="50,547"stroke-linecap="round"/></svg><span class="text">30%</span></div><style>.progress {position: relative;width: 200px;height: 200px;}.progress .text {position: absolute;width: 100%;text-align: center;left: 0;top: 50%;transform: translateY(-50%);font-size: 30px;font-weight: 500;color: #F34D4D;}</style></body></html>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Vuex手册</title>
       <link href="2021/04/02/2022-04-02/"/>
       <url>2021/04/02/2022-04-02/</url>
